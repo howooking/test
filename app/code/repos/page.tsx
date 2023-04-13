@@ -8,7 +8,7 @@ async function fetchRepos() {
     },
   });
 
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 2000)); // 로딩 확인용
 
   const repos = await response.json();
   return repos;
@@ -22,7 +22,7 @@ export default async function CodeReposPage() {
       <h2 className='bg-green-200 p-2 text-center text-2xl'>Repositories</h2>
       <ul>
         {repos.map((repo: any) => (
-          <li key={repo.id} className='m-10 bg-blue-200 p-2'>
+          <li key={repo.id} className='m-4 bg-blue-200 p-2'>
             <Link href={`/code/repos/${repo.name}`}>
               <h3 className='pb-4 text-xl font-bold'>{repo.name}</h3>
               <p>{repo.description}</p>

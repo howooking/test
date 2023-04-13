@@ -23,7 +23,9 @@ export default function RootLayout({
     <html lang='ko'>
       <body className={namun.className}>
         <Header />
-        <main className='container mx-auto bg-slate-200'>{children}</main>
+        <main className='container mx-auto min-h-screen bg-yellow-100 py-4'>
+          {children}
+        </main>
       </body>
     </html>
   );
