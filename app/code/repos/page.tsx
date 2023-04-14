@@ -19,10 +19,15 @@ export default async function CodeReposPage() {
 
   return (
     <div>
-      <h2 className='bg-green-200 p-2 text-center text-2xl'>Repositories</h2>
-      <ul>
+      <h2 className='bg-green-200 pt-[76px] text-center text-2xl'>
+        Repositories
+      </h2>
+      <ul className='flex flex-col gap-2'>
         {repos.map((repo: any) => (
-          <li key={repo.id} className='m-4 bg-blue-200 p-2'>
+          <li
+            key={repo.id}
+            className='box-border border-2 border-blue-800 bg-blue-200 p-2'
+          >
             <Link href={`/code/repos/${repo.name}`}>
               <h3 className='pb-4 text-xl font-bold'>{repo.name}</h3>
               <p>{repo.description}</p>

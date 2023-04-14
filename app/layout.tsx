@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang='ko'>
       <body className={namun.className}>
         <Header />
-        <main className='container mx-auto min-h-screen bg-yellow-100 py-4'>
+        <main className='container mx-auto min-h-screen bg-yellow-100 p-2'>
           {children}
         </main>
       </body>
