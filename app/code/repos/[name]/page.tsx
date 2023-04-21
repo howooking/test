@@ -1,5 +1,6 @@
 import Repo from "@/app/components/Repo";
 import RepoDirs from "@/app/components/RepoDirs";
+import { Suspense } from "react";
 
 export default async function SingleRepo({
   params: { name },
@@ -10,10 +11,14 @@ export default async function SingleRepo({
 }) {
   return (
     <div className='pt-[80px]'>
-      {/* @ts-expect-error Async Server Component */}
-      <Repo name={name} />
-      {/* @ts-expect-error Async Server Component */}
-      <RepoDirs name={name} />
+      <Suspense fallback={<div>Loading repository...</div>}>
+        {/* @ts-expect-error Async Server Component */}
+        <Repo name={name} />
+      </Suspense>
+      <Suspense fallback={<div>Loading directories...</div>}>
+        {/* @ts-expect-error Async Server Component */}
+        <RepoDirs name={name} />
+      </Suspense>
     </div>
   );
 }

@@ -12,7 +12,7 @@ async function fetchRepoContents(name: string) {
   return contents;
 }
 
-const RepoDirs = async ({ name }: { name: string }) => {
+export default async function RepoDirs({ name }: { name: string }) {
   const contents = await fetchRepoContents(name);
   const dirs = contents.map((content: any) => content.name);
 
@@ -31,5 +31,4 @@ const RepoDirs = async ({ name }: { name: string }) => {
       </ul>
     </div>
   );
-};
-export default RepoDirs;
+}
