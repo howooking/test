@@ -1,8 +1,10 @@
+import Courses from "./components/Courses";
+
 export default function Home() {
   return (
-    <>
-      <h1>hello world</h1>
-      <h1>안녕 세계야</h1>
-    </>
+    <div className='pt-[76px]'>
+      {/* @ts-expect-error Async Server Component */}
+      <Courses />
+    </div>
   );
 }
