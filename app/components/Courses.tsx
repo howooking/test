@@ -7,19 +7,18 @@ interface Course {
   link: string;
   level: string;
 }
+// 클라이언트 컴포넌트로 바꾸니깐
+// async function fetchCourses() {
+//   try {
+//     const res = await fetch("http://localhost:3000/api/courses");
+//     const courses = await res.json();
+//     return courses;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-async function fetchCourses() {
-  try {
-    const res = await fetch("http://localhost:3000/api/courses");
-    const courses = await res.json();
-    return courses;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export default async function Courses() {
-  const courses = await fetchCourses();
+export default function Courses({ courses }: { courses: Course[] }) {
   return (
     <>
       <div className='flex flex-col gap-3'>
