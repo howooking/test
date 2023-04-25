@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Courses from "./components/Courses";
 import Loading from "./loading";
+import CourseSearch from "./components/CoursesSearch";
 
 const Home = () => {
   const [mounted, setMounted] = useState(false);
@@ -35,8 +36,15 @@ const Home = () => {
       <h1 className='text-center bg-slate-200 p-4 text-3xl font-bold max-w-max rounded-2xl mx-auto my-3'>
         Welcome To Traversy Media
       </h1>
-      {mounted ? <Courses courses={courses} /> : <></>}
-      {/* <Courses courses={courses} /> */}
+
+      {mounted ? (
+        <>
+          <CourseSearch setCourses={setCourses} />
+          <Courses courses={courses} />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
